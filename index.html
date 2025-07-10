@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>네이버 블로그 & 플레이스 마케팅</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-
-  <!-- Pretendard Font -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
 
   <style>
@@ -67,28 +64,26 @@
       to { opacity: 1; }
     }
 
-  nav {
-  background-color: #0f1f17; /* 네이버 블랙그린 */
-  display: flex;
-  justify-content: center;
-  gap: 5rem; /* 더 넓게 간격 조정 */
-  padding: 1.8rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
+    nav {
+      background-color: #0f1f17;
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+      padding: 1.8rem 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
 
-nav a {
-  text-decoration: none;
-  color: #eaeaea;
-  font-weight: 500;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
-}
+    nav a {
+      text-decoration: none;
+      color: #eaeaea;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
 
-nav a:hover {
-  color: #5be17f; /* 산뜻한 네이버 느낌의 녹색 */
-}
-
-
+    nav a:hover {
+      color: #5be17f;
+    }
 
     section {
       padding: 4rem 2rem;
@@ -96,30 +91,6 @@ nav a:hover {
       margin: auto;
     }
 
-    /* Kakao Button */
-    .kakao-button {
-      background-color: #fee500;
-      color: #000;
-      font-weight: bold;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      margin-left: 1rem;
-      text-decoration: none;
-      font-size: 0.85rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      transition: background-color 0.2s;
-    }
-
-    .kakao-button:hover {
-      background-color: #ffde00;
-    }
-
-    .kakao-center {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    /* About Section with 배경 */
     #about {
       position: relative;
       background: url('사진1.png') no-repeat center center;
@@ -156,21 +127,71 @@ nav a:hover {
       line-height: 1.8;
     }
 
-/* 제공 서비스와 진행 절차에 대한 스타일 개선 */
-#services ul,
-#process ol {
-  padding-left: 1.2rem;
-  line-height: 1.9;
-  font-size: 1.05rem;
-  margin-top: 1.5rem;
+    /* --- ✅ 서비스 섹션 리디자인 --- */
+    #services {
+      text-align: center;
+    }
+
+  .service-grid {
+  display: flex;
+  justify-content: center;
+  gap: 10rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
-#services ul li,
-#process ol li {
-  margin-bottom: 1.2rem; /* 항목 간 여백 */
-}
 
-    /* Footer */
+    .service-item {
+      width: 200px;
+      text-align: center;
+    }
+
+    .service-item img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .service-item p {
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    /* 진행 절차 스타일 */
+    #process ol {
+      padding-left: 1.2rem;
+      line-height: 1.9;
+      font-size: 1.05rem;
+      margin-top: 1.5rem;
+    }
+
+    #process ol li {
+      margin-bottom: 1.2rem;
+    }
+
+    /* Kakao Button */
+    .kakao-button {
+      background-color: #fee500;
+      color: #000;
+      font-weight: bold;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: background-color 0.2s;
+    }
+
+    .kakao-button:hover {
+      background-color: #ffde00;
+    }
+
+    .kakao-center {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
     footer {
       background: #1e1e1e;
       color: #bbb;
@@ -209,12 +230,13 @@ nav a:hover {
     }
 
     @media (max-width: 768px) {
+      .service-grid {
+        flex-direction: column;
+        align-items: center;
+      }
       .footer-container {
         flex-direction: column;
         align-items: flex-start;
-      }
-      .footer-logo {
-        margin-bottom: 1rem;
       }
     }
   </style>
@@ -243,13 +265,23 @@ nav a:hover {
     </div>
   </section>
 
+  <!-- ✅ 제공 서비스 (Redesigned) -->
   <section id="services">
     <h2>제공 서비스</h2>
-    <ul>
-      <li>블로그 저널리스트</li>
-      <li>인스타그램 익스포져 </li>
-      <li>키워드 타게팅 외 플레이스 최적화</li>
-    </ul>
+    <div class="service-grid">
+      <div class="service-item">
+        <img src="blog.png" alt="블로그 저널리스트" />
+        <p>블로그 저널리스트</p>
+      </div>
+      <div class="service-item">
+        <img src="Exposure.png" alt="인스타그램 익스포져" />
+        <p>인스타그램 익스포져</p>
+      </div>
+      <div class="service-item">
+        <img src="Nplaceopt.png" alt="키워드 타게팅 외 플레이스 최적화" />
+        <p>키워드 타게팅 외 플레이스 최적화</p>
+      </div>
+    </div>
   </section>
 
   <section id="process">
