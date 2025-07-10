@@ -6,57 +6,8 @@
   <title>네이버 블로그 & 플레이스 마케팅</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
-<meta property="og:url" content="https://weplacemarketing.netlify.app" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="성공을 부르는 스마트 마케팅 솔루션" />
-<meta property="og:description" content="블로그, 인스타그램, 네이버 플레이스 최적화까지 – 위플레이스와 함께 성장하세요." />
-<meta property="og:image" content="https://weplacemarketing.netlify.app/og-thumbnail.png" />
-
-
 
   <style>
-#process {
-#process > * { position: relative; z-index: 1; }  text-align: center;
-  color: #fff;
-  padding: 8rem 2rem;
-  min-height: 60vh;
-  background: url('사진2.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-#process::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.65); /* 🔥 밝기 더 어둡게 */
-  z-index: 0;
-}
-
-#process h2, #process ol li {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* 🔥 텍스트 강조 */
-}
-#process > * {
-  position: relative;
-  z-index: 1;
-}
-
-#process h2 {
-  font-size: 2rem;
-  margin-bottom: 3rem;
-}
-
-#process ol {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  line-height: 2;
-  font-size: 1.1rem;
-}
-
     body {
       margin: 0;
       font-family: 'Pretendard', sans-serif;
@@ -140,7 +91,6 @@
       margin: 6rem auto;
       background-color: #1c1c1e;
       border-radius: 16px;
-      text-align: center;
     }
 
     #about {
@@ -148,9 +98,8 @@
       background: url('사진1.png') no-repeat center center;
       background-size: cover;
       background-attachment: fixed;
-      background-position: center center;
-      background-repeat: no-repeat;
       color: #fff;
+      text-align: center;
       min-height: 55vh;
       display: flex;
       justify-content: center;
@@ -161,10 +110,8 @@
     #about::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0,0,0,0.5);
       z-index: 0;
     }
@@ -185,6 +132,7 @@
     }
 
     #services {
+      text-align: center;
       padding-top: 1rem;
       padding-bottom: 15rem;
     }
@@ -218,23 +166,70 @@
       transition: transform 0.3s ease;
     }
 
+    /* ✅ 진행절차 with background image + zoom-out on mobile */
+    #process {
+      position: relative;
+      background: url('사진2.png') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      min-height: 60vh;
+      padding: 8rem 2rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    #process::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    #process > * {
+      position: relative;
+      z-index: 1;
+    }
+
     #process h2 {
+      font-size: 2rem;
       margin-bottom: 3rem;
     }
 
-    #process ol {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      font-size: 1.15rem;
-      line-height: 2.1;
-      max-width: 500px;
+    #process .steps {
+      font-size: 1.2rem;
+      line-height: 2;
+      font-weight: 500;
+      white-space: pre-line;
     }
 
-    #process ol li {
-      margin-bottom: 1rem;
+    /* ✅ Responsive section tweaks */
+    @media (max-width: 768px) {
+      .service-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+      }
+
+      .service-item {
+        width: 80%;
+        max-width: 300px;
+      }
+
+      .service-item img {
+        width: 100%;
+      }
+
+      #process {
+        background-size: contain;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+      }
     }
 
+    /* Kakao Button */
     .kakao-button {
       background-color: #fee500;
       color: #000;
@@ -250,11 +245,6 @@
 
     .kakao-button:hover {
       background-color: #ffde00;
-    }
-
-    .kakao-center {
-      text-align: center;
-      margin-top: 1rem;
     }
 
     footer {
@@ -286,37 +276,15 @@
       line-height: 1.8;
     }
 
-    .footer-info p {
-      margin: 0.3rem 0;
-    }
-
     .footer-info strong {
       color: #eee;
-    }
-
-    @media (max-width: 768px) {
-      .service-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-      }
-
-      .service-item {
-        width: 80%;
-        max-width: 300px;
-      }
-
-      .footer-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="header-content">
-      <h1>상상하신 탄탄한 비즈니스 , 오늘부터 현실입니다.</h1>
+      <h1>상상하신 탄탄한 비즈니스, 오늘부터 현실입니다.</h1>
       <p>(주) 위플레이스 마케팅</p>
     </div>
   </header>
@@ -332,12 +300,12 @@
     <div>
       <h2>"Value"</h2>
       <p>저희는 고객의 성공이 비즈니스의 "핵심가치" 임을 믿으며,<br>
-        온라인 광고부터 매장 컨설팅까지.<br>
-        맞춤형 솔루션을 제공하여 고객님의 비즈니스 성장을 지원합니다.</p>
+      온라인 광고부터 매장 컨설팅까지.<br>
+      맞춤형 솔루션을 제공하여 고객님의 비즈니스 성장을 지원합니다.</p>
     </div>
   </section>
 
-  <section id="services" class="fade-up">
+  <section id="services">
     <h2>제공 서비스</h2>
     <div class="service-grid">
       <div class="service-item">
@@ -355,30 +323,25 @@
     </div>
   </section>
 
- <section id="process">
-  <h2>진행 절차</h2>
-  <ol>
-    <li>1:1 맞춤형 고객 니즈 파악</li>
-    <li>업종을 고려한 서비스 제시</li>
-    <li>마케팅 멘토링 메신저 개설</li>
-    <li>리뷰 & 플레이스 최적화</li>
-  </ol>
-</section>
-
-
-
-  <section id="contact">
-    <h2>문의하기</h2>
-    <p>문의 : 00 : 00 - 24 : 00</p>
-    <p>전화 : 010-2678-9036</p>
-    <div class="contact-kakao">
-      <p>
-        카카오톡 :
-        <a href="https://open.kakao.com/o/soQ9hEFh" target="_blank" class="kakao-button">오픈채팅 바로가기</a>
-      </p>
-      <p>이메일 : weplacehyun@naver.com</p>
-    </div>
+  <section id="process">
+    <h2>진행 절차</h2>
+    <p class="steps">
+1:1 맞춤형 고객 니즈 파악  
+업종을 고려한 서비스 제시  
+마케팅 멘토링 메신저 개설  
+리뷰 & 플레이스 최적화
+    </p>
   </section>
+
+<section id="contact" style="text-align: center; padding: 6rem 2rem; max-width: 960px; margin: 6rem auto; background-color: #1c1c1e; border-radius: 16px;">
+  <h2>문의하기</h2>
+  <p>문의 : 00 : 00 – 24 : 00</p>
+  <p>전화: 010-2678-9036</p>
+  <p>
+    카카오톡:<a href="https://open.kakao.com/o/soQ9hEFh" target="_blank" class="kakao-button">오픈채팅 바로가기</a>
+  </p>
+<p>이메일: weplacehyun@naver.com</p>
+</section>
 
   <footer>
     <div class="footer-container">
@@ -395,18 +358,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    const faders = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    faders.forEach(fader => observer.observe(fader));
-  </script>
 </body>
 </html>
