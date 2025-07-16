@@ -212,7 +212,7 @@
       white-space: pre-line;
     }
 
-    /* ✅ Responsive section tweaks */
+ 
     @media (max-width: 768px) {
       .service-grid {
         flex-direction: column;
@@ -296,9 +296,16 @@
   }
 
   nav a {
-    font-size: 0.9rem; /* 작게 */
-    white-space: nowrap; /* 줄바꿈 방지 */
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
+#about {
+  background-attachment: scroll;
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
 }
 
   </style>
@@ -306,7 +313,7 @@
 <body>
   <header>
     <div class="header-content">
-      <h1>상상하신 탄탄한 비즈니스, 오늘부터 현실입니다.</h1>
+     <h1>상상하신 탄탄한 비즈니스,<br>오늘부터 현실입니다.</h1>
       <p>(주) 위플레이스 마케팅</p>
     </div>
   </header>
@@ -389,3 +396,4 @@
   </footer>
 </body>
 </html>
+!
