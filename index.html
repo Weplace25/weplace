@@ -1,394 +1,375 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>위플레이스마케팅</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>위플레이스마케팅 | Mashcore × WePlace</title>
 
+  <!-- SEO -->
+  <meta name="description" content="오프라인의 진심을 온라인에서 확장하는 브랜드 파트너. 네이버 블로그/플레이스 브랜딩, 감성 스토리 콘텐츠, 지역 최적화, 성과 리포트까지." />
+  <link rel="canonical" href="https://weplacemarketing.netlify.app/" />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://weplacemarketing.netlify.app/" />
-  <meta property="og:title" content="위플레이스마케팅 - 신뢰 기반, 맞춤형 네이버 마케팅 파트너" />
-  <meta property="og:description" content="블로그 & 플레이스 최적화, 인스타그램 익스포져까지 한 번에. 지금 문의해보세요!" />
+  <meta property="og:title" content="위플레이스마케팅 - 감성과 전략의 교차점" />
+  <meta property="og:description" content="리뷰 수가 아닌 ‘스토리’로 승부합니다. Mashcore × WePlace." />
   <meta property="og:image" content="https://weplacemarketing.netlify.app/ogimage.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
+  <!-- Favicons (optional) -->
+  <link rel="icon" href="/favicon.ico" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Pretendard', sans-serif;
-      color: #eaeaea;
-      background-color: #1c1c1e;
+    :root{
+      --bg:#1c1c1e; --bg-dark:#0d0d0d; --ink:#eaeaea; --muted:#b7b7b7;
+      --accent:#5be17f; --gold:#f0c14b; --panel:#1f1f21; --panel-2:#222326;
+      --shadow: 0 6px 24px rgba(0,0,0,.25);
+      --radius: 16px;
     }
-
-    header {
-      position: relative;
-      height: 100vh;
-      background: url('사진0.png') no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--ink); background:var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", Arial, sans-serif;
+      line-height:1.6;
     }
+    a{color:inherit}
+    .container{max-width:1080px; margin:0 auto; padding:0 20px}
 
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
+    /* Header / Hero */
+    header{
+      position:relative; height:100vh; min-height:640px;
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      background:url('사진0.png') center/cover no-repeat;
+      isolation:isolate;
     }
-
-    .header-content {
-      z-index: 2;
-      padding-top: 2rem;
+    header::after{
+      content:""; position:absolute; inset:0; background:linear-gradient(
+        180deg, rgba(0,0,0,.55), rgba(0,0,0,.35) 40%, rgba(0,0,0,.55)
+      ); z-index:0;
     }
-
-    .header-content h1 {
-      font-size: 2.4rem;
-      color: #f0e9d6;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-      font-weight: 500;
-      margin: 0 0 2rem;
-      opacity: 0;
-      animation: fadein 2s ease-out forwards;
+    .hero{position:relative; z-index:1; padding:24px}
+    .hero h1{
+      margin:0 0 14px; font-weight:700; letter-spacing:-0.02em;
+      font-size: clamp(28px, 5vw, 48px); color:#f0e9d6; text-shadow:0 4px 24px rgba(0,0,0,.45);
+      opacity:0; animation:fadeup .7s .1s both ease-out;
     }
-
-    .header-content p {
-      font-size: 1.5rem;
-      color: #f0e9d6;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-      margin: 0;
-      opacity: 0;
-      animation: fadein 2.5s ease-out forwards;
+    .hero p{
+      margin:0 0 28px; color:#f0e9d6; opacity:.9;
+      font-size: clamp(16px, 2.5vw, 20px);
+      opacity:0; animation:fadeup .9s .25s both ease-out;
     }
-
-    @keyframes fadein {
-      to { opacity: 1; }
+    .hero .cta{
+      display:inline-flex; align-items:center; gap:10px;
+      background:var(--accent); color:#042b16; font-weight:700;
+      padding:12px 18px; border-radius:10px; text-decoration:none; box-shadow:var(--shadow);
+      transition: transform .15s ease, filter .15s ease;
     }
+    .hero .cta:hover{transform:translateY(-1px); filter:brightness(1.02)}
 
-    nav {
-      background-color: #0f1f17;
-      display: flex;
-      justify-content: center;
-      gap: 5rem;
-      padding: 1.8rem 0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    @keyframes fadeup{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
+
+    /* Nav (sticky) */
+    nav{
+      position:sticky; top:0; z-index:10; backdrop-filter: blur(6px);
+      background:rgba(15,31,23,.75); border-bottom:1px solid rgba(255,255,255,.06);
     }
+    .nav-inner{display:flex; gap:24px; align-items:center; justify-content:center; padding:14px 10px; overflow-x:auto}
+    nav a{color:#eaeaea; text-decoration:none; font-weight:600; white-space:nowrap; opacity:.9}
+    nav a:hover{color:var(--accent)}
 
-    nav a {
-      text-decoration: none;
-      color: #eaeaea;
-      font-weight: 500;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
+    /* Sections */
+    section{padding:88px 0}
+    .card{
+      background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:40px; overflow:hidden;
     }
-
-    nav a:hover {
-      color: #5be17f;
+    .section-title{
+      margin:0 0 16px; font-size: clamp(22px, 3.4vw, 30px); font-weight:800;
+      letter-spacing:-0.02em;
     }
+    .section-sub{margin:0 0 26px; color:var(--muted)}
 
-    section {
-      padding: 6rem 2rem;
-      max-width: 960px;
-      margin: 6rem auto;
-      background-color: #1c1c1e;
-      border-radius: 16px;
+    /* About (Value) parallax panel */
+    #about{
+      position:relative; min-height:56vh; display:flex; align-items:center;
+      background:url('사진1.png') center/cover no-repeat fixed;
+      isolation:isolate;
     }
+    #about::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.5); z-index:0}
+    #about .inner{position:relative; z-index:1}
+    #about h2{font-size: clamp(22px, 3.5vw, 32px); margin:0 0 10px}
+    #about p{font-size: clamp(15px, 2.5vw, 18px); margin:0}
 
-    #about {
-      position: relative;
-      background: url('사진1.png') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
-      color: #fff;
-      text-align: center;
-      min-height: 55vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 4rem 3rem;
+    /* Services */
+    #services .grid{
+      display:grid; gap:26px; grid-template-columns: repeat( auto-fit, minmax(220px,1fr) );
+      margin-top:22px;
     }
-
-    #about::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 0;
+    .svc{
+      background:var(--panel-2); border-radius:14px; padding:18px; text-align:center;
+      transition:transform .2s ease;
     }
+    .svc:hover{transform: translateY(-2px)}
+    .svc img{width:100%; border-radius:12px; margin:0 0 12px}
+    .svc .label{font-weight:700}
 
-    #about > div {
-      position: relative;
-      z-index: 1;
+    /* Pain → Solution */
+    .columns{display:grid; gap:24px; grid-template-columns:1fr 1fr}
+    .pill{display:inline-block; font-size:13px; padding:6px 10px; border-radius:100px; background:#26282b; color:#cfcfcf; margin-bottom:8px}
+    .list{margin:0; padding-left:0; list-style:none}
+    .list li{margin:10px 0; padding-left:0}
+    .list li b{display:block; margin-bottom:4px}
+    .muted{color:var(--muted)}
+
+    /* Case Study */
+    .case{
+      background:url('사진2.png') center/cover no-repeat fixed; position:relative; isolation:isolate; border-radius:var(--radius);
     }
+    .case::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.6)}
+    .case .content{position:relative; z-index:1; padding:40px}
 
-    #about h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1.2rem;
+    /* Process */
+    .steps{white-space:pre-line; text-align:center; font-weight:600}
+    .steps .arrow{display:block; opacity:.7; margin:10px 0}
+
+    /* Contact */
+    .kakao{
+      display:inline-flex; align-items:center; gap:10px; background:#fee500; color:#111; font-weight:800;
+      padding:10px 14px; border-radius:10px; text-decoration:none; box-shadow:var(--shadow);
     }
+    .contact-card p{margin:8px 0}
 
-    #about p {
-      font-size: 1.1rem;
-      line-height: 1.8;
+    /* Footer */
+    footer{background:#1e1e1e; color:#bbb; padding:56px 0}
+    .footer{display:flex; gap:26px; flex-wrap:wrap; align-items:flex-start; justify-content:center}
+    .footer img{width:120px; height:auto}
+    .footer .info{min-width:240px}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .columns{grid-template-columns:1fr}
+      .card{padding:28px}
     }
-
-    #services {
-      text-align: center;
-      padding-top: 1rem;
-      padding-bottom: 15rem;
-    }
-
-    .service-grid {
-      display: flex;
-      justify-content: center;
-      gap: 10rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-
-    .service-item {
-      width: 200px;
-      text-align: center;
-    }
-
-    .service-item img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-
-    .service-item p {
-      font-size: 1.05rem;
-      font-weight: 500;
-    }
-
-    .service-item:hover {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
-    }
-
-    /* ✅ 진행절차 with background image + zoom-out on mobile */
-    #process {
-      position: relative;
-      background: url('사진2.png') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
-      min-height: 60vh;
-      padding: 8rem 2rem;
-      color: #fff;
-      text-align: center;
-    }
-
-    #process::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-
-    #process > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    #process h2 {
-      font-size: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    #process .steps {
-      font-size: 1.2rem;
-      line-height: 2;
-      font-weight: 500;
-      white-space: pre-line;
-    }
-
- 
-    @media (max-width: 768px) {
-      .service-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-      }
-
-      .service-item {
-        width: 80%;
-        max-width: 300px;
-      }
-
-      .service-item img {
-        width: 100%;
-      }
-
-      #process {
-        background-size: contain;
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-      }
-    }
-
-    /* Kakao Button */
-    .kakao-button {
-      background-color: #fee500;
-      color: #000;
-      font-weight: bold;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      margin-left: 1rem;
-      text-decoration: none;
-      font-size: 0.85rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      transition: background-color 0.2s;
-    }
-
-    .kakao-button:hover {
-      background-color: #ffde00;
-    }
-
-    footer {
-      background: #1e1e1e;
-      color: #bbb;
-      padding: 5rem 2rem 6rem;
-      font-size: 0.9rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 2rem;
-      text-align: left;
-    }
-
-    .footer-logo img {
-      width: 120px;
-      height: auto;
-    }
-
-    .footer-info {
-      flex: 1;
-      min-width: 240px;
-      line-height: 1.8;
-    }
-
-    .footer-info strong {
-      color: #eee;
-    }
-@media (max-width: 768px) {
-  nav {
-    flex-wrap: nowrap;
-    gap: 1.2rem; /* 기존보다 좁게 */
-    padding: 1rem 1rem;
-    overflow-x: auto; /* 가로 스크롤 허용 (선택사항) */
+  
+/* 진행절차 섹션: 배경 + 어두운 오버레이 */
+#process{
+  position: relative;
+  min-height: 60vh;
+  padding: 8rem 2rem;
+  color: #fff;
+  text-align: center;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
+    url('/images/coffee.jpg') center/cover no-repeat fixed;
+}
+#process > * { position: relative; z-index: 2; }
+#process::before{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(0,0,0,0.20);
+  z-index:1;
+}
+#process h2{ font-size:2rem; margin-bottom:3rem; }
+#process .steps{ font-size:1.2rem; line-height:2; font-weight:500; white-space:pre-line; }
+@media (max-width: 768px){
+  #process{
+    background-attachment: scroll;
+    background-position: center top;
   }
-
-  nav a {
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-
 }
 
-  </style>
+/* Pain */
+.section-pain{
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('/images/texture.jpg') center/cover no-repeat;
+  color:#fff; padding:6rem 2rem; border-radius:16px;
+}
+
+/* Solution */
+.section-solution{
+  background:
+    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+    url('/images/owner.jpg') center/cover no-repeat;
+  color:#fff; padding:6rem 2rem; border-radius:16px;
+}
+
+</style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-     <h1>상상을 현실로. <br>꿈꾸던 비즈니스,<br>오늘부터 시작입니다.</h1>
-      <p>(주) 위플레이스 마케팅</p>
+
+  <!-- HERO -->
+  <header aria-label="Hero">
+    <div class="hero container">
+      <h1>리뷰 수가 아닌, <br/>‘스토리’로 승부합니다.</h1>
+      <p>Mashcore × WePlace — 오프라인의 진심을 온라인에서 확장하는 브랜드 파트너</p>
+      <a class="cta" href="#contact" aria-label="상담 문의로 이동">무료 상담하기</a>
     </div>
   </header>
 
+  <!-- NAV -->
   <nav>
-    <a href="#about">회사 소개</a>
-    <a href="#services">서비스</a>
-    <a href="#process">진행 절차</a>
-    <a href="#contact">문의하기</a>
+    <div class="nav-inner container">
+      <a href="#about">가치(Value)</a>
+      <a href="#services">서비스</a>
+      <a href="#pain">문제 인식</a>
+      <a href="#solution">해결 방식</a>
+      <a href="#case">사례</a>
+      <a href="#process">진행 절차</a>
+      <a href="#contact">문의</a>
+    </div>
   </nav>
 
+  <!-- ABOUT / VALUE -->
   <section id="about">
-    <div>
-      <h2>"Value"</h2>
-      <p>저희는 고객의 성공이 <br> 비즈니스의 "핵심가치" 임을 믿으며,<br>
-      온라인 광고부터 매장 컨설팅까지.<br>
-      맞춤형 솔루션을 제공하여 <br>단순한 온라인 광고를 넘어, <br>
-매출 성장과 수익 향상을 지원합니다.</p>
+    <div class="container inner">
+      <h2>“감성과 전략의 교차점에서, 매장을 ‘브랜드’로 바꿉니다.”</h2>
+      <p>
+        우리는 오프라인에서 만들어진 좋은 경험을 온라인에서 ‘공기처럼’ 느껴지게 만듭니다.<br/>
+        네이버 블로그/플레이스, 감성 스토리 콘텐츠, 지역 최적화, 그리고 데이터 기반 리포트까지 —<br/>
+        대표님 매장의 ‘진짜 매력’을 고객의 언어로 설계합니다.
+      </p>
     </div>
   </section>
 
-  <section id="services">
-    <h2>제공 서비스</h2>
-    <div class="service-grid">
-      <div class="service-item">
-        <img src="blog.png" alt="블로그 저널리스트" />
-        <p>블로그 저널리스트</p>
+  <!-- SERVICES -->
+  <section id="services" class="container">
+    <h3 class="section-title">제공 서비스</h3>
+    <p class="section-sub">단순 노출이 아니라, ‘기억되는 경험’을 설계합니다.</p>
+    <div class="grid">
+      <div class="svc">
+        <img src="blog.png" alt="네이버 블로그 브랜딩" />
+        <div class="label">네이버 블로그 & 플레이스 브랜딩</div>
+        <div class="muted">가게의 목소리를 담은 스토리 포스팅, 지도 연동 최적화</div>
       </div>
-      <div class="service-item">
+      <div class="svc">
         <img src="Exposure.png" alt="인스타그램 익스포져" />
-        <p>인스타그램 익스포져</p>
+        <div class="label">인스타그램 익스포져</div>
+        <div class="muted">감성 비주얼과 해시태그 전략으로 탐색 유입 강화</div>
       </div>
-      <div class="service-item">
-        <img src="Nplaceopt.png" alt="키워드 타게팅 외 플레이스 최적화" />
-        <p>플레이스 최적화</p>
+      <div class="svc">
+        <img src="Nplaceopt.png" alt="플레이스 최적화" />
+        <div class="label">로컬 키워드 & 지역 최적화</div>
+        <div class="muted">‘동네 손님’과 ‘새 손님’을 위한 검색 동선 설계</div>
       </div>
     </div>
   </section>
 
-  <section id="process">
-    <h2>진행 절차</h2>
-    <p class="steps">
-고객 맞춤형 데이터 제시  
-↓
-<br>
-업종을 고려한 서비스 제안
-↓
-<br>
-소통 메신저 개설 & 마케팅  
-↓
-<br>
-리뷰 & 플레이스 최적화
-    </p>
+  <!-- PAIN -->
+  <section id="pain" class="container">
+    <div class="card">
+      <span class="pill">사장님들이 자주 하시는 말씀</span>
+      <h3 class="section-title">리뷰와 숫자에 가려진 ‘진짜 문제’</h3>
+      <div class="columns">
+        <div>
+          <ul class="list">
+            <li><b>“생각보다 매출이 안 올라요…”</b><span class="muted">리뷰 수만 늘려선 한계.</span></li>
+            <li><b>“복붙 포스팅은 그럴듯하지만…”</b><span class="muted">우리 매장만의 개성이 사라짐.</span></li>
+            <li><b>“방문은 오는데 결제가 안 돼요.”</b><span class="muted">유입 → 결제 전환 연결이 약함.</span></li>
+            <li><b>“내 가게 이야기를 해주는 곳이 없어요.”</b><span class="muted">고객과 감정적으로 연결되는 서사 부재.</span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="list">
+            <li><b>📉 결과 중심 홍보의 한계</b><span class="muted">숫자 놀음이 아닌, 경험 설계가 필요.</span></li>
+            <li><b>🎯 맞춤 전략 부재</b><span class="muted">업종·지역·고객 특성을 반영한 콘텐츠 필요.</span></li>
+            <li><b>🔄 유입→결제 연결</b><span class="muted">상담/방문 이후 행동 유도 시나리오 설계.</span></li>
+            <li><b>💬 스토리의 힘</b><span class="muted">‘왜 이 가게인가’를 몸으로 느끼게 만들기.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
-<section id="contact" style="text-align: center; padding: 6rem 2rem; max-width: 960px; margin: 6rem auto; background-color: #1c1c1e; border-radius: 16px;">
-  <h2>문의하기</h2>
-  <p>문의 : 00 : 00 – 24 : 00</p>
-  <p>전화: 010-2678-9036</p>
-<p>이메일: weplacehyun@naver.com</p>
-  <p>
-    카카오톡: hyuney87<br><br>
-<a href="https://open.kakao.com/o/soQ9hEFh" target="_blank" class="kakao-button">오픈채팅 바로가기</a>
-  </p><br>
-</section>
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="로고.jpg" alt="WE PLACE 로고" />
+  <!-- SOLUTION -->
+  <section id="solution" class="container">
+    <div class="card">
+      <span class="pill">Mashcore × WePlace의 해결</span>
+      <h3 class="section-title">리뷰 수가 아닌 ‘스토리’로 매출을 연결합니다</h3>
+      <div class="columns">
+        <div>
+          <ul class="list">
+            <li><b>1) 맞춤형 스토리 제작</b><span class="muted">사장님의 ‘목소리’를 담은 포스팅과 비주얼.</span></li>
+            <li><b>2) 고객 여정 설계</b><span class="muted">온·오프라인을 잇는 탐색→방문→결제 흐름.</span></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="list">
+            <li><b>3) 지역 키워드 최적화</b><span class="muted">지도 연동, 지점별 노출 구조 설계.</span></li>
+            <li><b>4) 데이터 리포트</b><span class="muted">성과를 보이는 리포트로 운영 의사결정 지원.</span></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-info">
+    </div>
+  </section>
+
+  <!-- CASE STUDY -->
+  <section id="case" class="container">
+    <div class="case">
+      <div class="content">
+        <span class="pill">Case Study</span>
+        <h3 class="section-title">조선탑케어 — 거제 입주청소</h3>
+        <p>
+          ➜ ‘리뷰 수’ 경쟁에서 벗어나, 고객 체험 기반의 스토리 콘텐츠로 전환<br/>
+          ➜ 지점·지역 검색어 최적화 + 지도 연동 구조 보강<br/>
+          ➜ 결과: 매출 상승 체감 & 지인 추천 유입 증가(지속 소통 기반)
+        </p>
+        <p class="muted" style="margin-top:8px">* 상세 수치는 사장님 동의 시 제안서 본문에 제공</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="container">
+    <div class="card">
+      <h3 class="section-title">진행 절차</h3>
+      <p class="steps">
+        고객 맞춤형 데이터 제시
+        <span class="arrow">↓</span>
+        업종을 고려한 서비스 제안
+        <span class="arrow">↓</span>
+        소통 메신저 개설 & 운영
+        <span class="arrow">↓</span>
+        리뷰 & 플레이스 최적화
+        <span class="arrow">↓</span>
+        성과 리포트 & 개선
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <div class="card contact-card" style="text-align:center">
+      <h3 class="section-title">문의하기</h3>
+      <p class="section-sub">“지금이 ‘스토리’로 전환할 타이밍이라면, 저희가 시작을 책임지겠습니다.”</p>
+      <p>상담 시간: 00:00 – 24:00</p>
+      <p>전화: <a href="tel:01026789036">010-2678-9036</a></p>
+      <p>이메일: <a href="mailto:weplacehyun@naver.com">weplacehyun@naver.com</a></p>
+      <p>카카오톡: hyuney87</p>
+      <p>
+        <a class="kakao" href="https://open.kakao.com/o/soQ9hEFh" target="_blank" rel="noopener">오픈채팅 바로가기</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer container">
+      <div><img src="로고.jpg" alt="WE PLACE 로고" /></div>
+      <div class="info">
         <p><strong>상호명:</strong> 위플레이스마케팅</p>
         <p><strong>대표자:</strong> 박규민</p>
         <p><strong>사업자등록번호:</strong> 145-88-03119</p>
-        <p><strong>주소:</strong> 서울특별시 금천구 디지털로 178,<br>1910호 현대지식산업센터 가산퍼블릭 에이치</p>
-        <p><strong>전화:</strong> 010-2678-9036
+        <p><strong>주소:</strong> 서울특별시 금천구 디지털로 178, 1910호 현대지식산업센터 가산퍼블릭 에이치</p>
+        <p><strong>전화:</strong> 010-2678-9036</p>
         <p><strong>이메일:</strong> weplacehyun@naver.com</p>
         <p>&copy; 2025 (주) 위플레이스마케팅. All rights reserved.</p>
       </div>
     </div>
   </footer>
+
 </body>
 </html>
