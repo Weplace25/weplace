@@ -3,201 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>위플레이스마케팅 | Mashcore × WePlace</title>
+  <title>위플레이스마케팅 |  WePlace</title>
 
-  <!-- SEO -->
   <meta name="description" content="오프라인의 진심을 온라인에서 확장하는 브랜드 파트너. 네이버 블로그/플레이스 브랜딩, 감성 스토리 콘텐츠, 지역 최적화, 성과 리포트까지." />
   <link rel="canonical" href="https://weplacemarketing.netlify.app/" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://weplacemarketing.netlify.app/" />
   <meta property="og:title" content="위플레이스마케팅 - 감성과 전략의 교차점" />
-  <meta property="og:description" content="리뷰 수가 아닌 ‘스토리’로 승부합니다. Mashcore × WePlace." />
+  <meta property="og:description" content="리뷰 수가 아닌 ‘스토리’로 승부합니다. WePlace." />
   <meta property="og:image" content="https://weplacemarketing.netlify.app/ogimage.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <!-- Favicons (optional) -->
   <link rel="icon" href="/favicon.ico" />
 
   <style>
     :root{
-      --bg:#1c1c1e; --bg-dark:#0d0d0d; --ink:#eaeaea; --muted:#b7b7b7;
-      --accent:#5be17f; --gold:#f0c14b; --panel:#1f1f21; --panel-2:#222326;
-      --shadow: 0 6px 24px rgba(0,0,0,.25);
-      --radius: 16px;
+      --bg:#1c1c1e; --ink:#eaeaea; --muted:#b7b7b7;
+      --accent:#5be17f; --panel:#1f1f21; --panel2:#222326;
+      --radius:16px; --shadow:0 6px 24px rgba(0,0,0,.25);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0; color:var(--ink); background:var(--bg);
-      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", Arial, sans-serif;
-      line-height:1.6;
-    }
+    body{margin:0; color:var(--ink); background:var(--bg);
+      font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR",Arial,sans-serif; line-height:1.6}
     a{color:inherit}
     .container{max-width:1080px; margin:0 auto; padding:0 20px}
 
-    /* Header / Hero */
+    /* HERO */
     header{
-      position:relative; height:100vh; min-height:640px;
-      display:flex; align-items:center; justify-content:center; text-align:center;
-      background:url('사진0.png') center/cover no-repeat;
-      isolation:isolate;
+      position:relative; height:100vh; min-height:640px; display:flex; align-items:center; justify-content:center; text-align:center;
+      background:url('사진0.png') center/cover no-repeat; isolation:isolate;
     }
-    header::after{
-      content:""; position:absolute; inset:0; background:linear-gradient(
-        180deg, rgba(0,0,0,.55), rgba(0,0,0,.35) 40%, rgba(0,0,0,.55)
-      ); z-index:0;
-    }
+    header::after{content:""; position:absolute; inset:0; z-index:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35) 40%, rgba(0,0,0,.55))}
     .hero{position:relative; z-index:1; padding:24px}
-    .hero h1{
-      margin:0 0 14px; font-weight:700; letter-spacing:-0.02em;
-      font-size: clamp(28px, 5vw, 48px); color:#f0e9d6; text-shadow:0 4px 24px rgba(0,0,0,.45);
-      opacity:0; animation:fadeup .7s .1s both ease-out;
-    }
-    .hero p{
-      margin:0 0 28px; color:#f0e9d6; opacity:.9;
-      font-size: clamp(16px, 2.5vw, 20px);
-      opacity:0; animation:fadeup .9s .25s both ease-out;
-    }
-    .hero .cta{
-      display:inline-flex; align-items:center; gap:10px;
-      background:var(--accent); color:#042b16; font-weight:700;
-      padding:12px 18px; border-radius:10px; text-decoration:none; box-shadow:var(--shadow);
-      transition: transform .15s ease, filter .15s ease;
-    }
-    .hero .cta:hover{transform:translateY(-1px); filter:brightness(1.02)}
+    .hero h1{margin:0 0 14px; font-weight:700; letter-spacing:-.02em; font-size:clamp(28px,5vw,48px); color:#f0e9d6}
+    .hero p{margin:0 0 28px; color:#f0e9d6; opacity:.9; font-size:clamp(16px,2.5vw,20px)}
+    .cta{display:inline-flex; align-items:center; gap:10px; background:var(--accent); color:#042b16; font-weight:700;
+      padding:12px 18px; border-radius:10px; text-decoration:none; box-shadow:var(--shadow)}
 
-    @keyframes fadeup{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
-
-    /* Nav (sticky) */
-    nav{
-      position:sticky; top:0; z-index:10; backdrop-filter: blur(6px);
-      background:rgba(15,31,23,.75); border-bottom:1px solid rgba(255,255,255,.06);
-    }
+    /* NAV */
+    nav{position:sticky; top:0; z-index:10; backdrop-filter:blur(6px);
+      background:rgba(15,31,23,.75); border-bottom:1px solid rgba(255,255,255,.06)}
     .nav-inner{display:flex; gap:24px; align-items:center; justify-content:center; padding:14px 10px; overflow-x:auto}
-    nav a{color:#eaeaea; text-decoration:none; font-weight:600; white-space:nowrap; opacity:.9}
+    nav a{text-decoration:none; font-weight:600; white-space:nowrap; opacity:.9}
     nav a:hover{color:var(--accent)}
 
-    /* Sections */
+    /* SECTIONS */
     section{padding:88px 0}
-    .card{
-      background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:40px; overflow:hidden;
-    }
-    .section-title{
-      margin:0 0 16px; font-size: clamp(22px, 3.4vw, 30px); font-weight:800;
-      letter-spacing:-0.02em;
-    }
+    .card{background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow); padding:40px; overflow:hidden}
+    .section-title{margin:0 0 16px; font-size:clamp(22px,3.4vw,30px); font-weight:800; letter-spacing:-.02em}
     .section-sub{margin:0 0 26px; color:var(--muted)}
 
-    /* About (Value) parallax panel */
-    #about{
-      position:relative; min-height:56vh; display:flex; align-items:center;
-      background:url('사진1.png') center/cover no-repeat fixed;
-      isolation:isolate;
-    }
-    #about::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.5); z-index:0}
+    /* ABOUT */
+    #about{position:relative; min-height:56vh; display:flex; align-items:center;
+      background:url('사진1.png') center/cover no-repeat fixed; isolation:isolate}
+    #about::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.5)}
     #about .inner{position:relative; z-index:1}
-    #about h2{font-size: clamp(22px, 3.5vw, 32px); margin:0 0 10px}
-    #about p{font-size: clamp(15px, 2.5vw, 18px); margin:0}
+    #about h2{font-size:clamp(22px,3.5vw,32px); margin:0 0 10px}
+    #about p{font-size:clamp(15px,2.5vw,18px); margin:0}
 
-    /* Services */
-    #services .grid{
-      display:grid; gap:26px; grid-template-columns: repeat( auto-fit, minmax(220px,1fr) );
-      margin-top:22px;
-    }
-    .svc{
-      background:var(--panel-2); border-radius:14px; padding:18px; text-align:center;
-      transition:transform .2s ease;
-    }
-    .svc:hover{transform: translateY(-2px)}
+    /* SERVICES */
+    #services .grid{display:grid; gap:26px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-top:22px}
+    .svc{background:var(--panel2); border-radius:14px; padding:18px; text-align:center; transition:transform .2s ease}
+    .svc:hover{transform:translateY(-2px)}
     .svc img{width:100%; border-radius:12px; margin:0 0 12px}
     .svc .label{font-weight:700}
 
-    /* Pain → Solution */
+    /* TWO-COLUMN LISTS */
     .columns{display:grid; gap:24px; grid-template-columns:1fr 1fr}
     .pill{display:inline-block; font-size:13px; padding:6px 10px; border-radius:100px; background:#26282b; color:#cfcfcf; margin-bottom:8px}
     .list{margin:0; padding-left:0; list-style:none}
-    .list li{margin:10px 0; padding-left:0}
-    .list li b{display:block; margin-bottom:4px}
+    .list li{margin:10px 0}
+    .list b{display:block; margin-bottom:4px}
     .muted{color:var(--muted)}
 
-    /* Case Study */
-    .case{
-      background:url('사진2.png') center/cover no-repeat fixed; position:relative; isolation:isolate; border-radius:var(--radius);
+    /* PAIN (texture bg) */
+    #pain{
+      position:relative; isolation:isolate;
+      background:
+        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.58)),
+        url('texture.jpg') center/cover no-repeat fixed;
+      border-radius:var(--radius);
     }
-    .case::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.6)}
-    .case .content{position:relative; z-index:1; padding:40px}
+    #pain > .card{background:transparent; box-shadow:none}
 
-    /* Process */
+    /* CASE (owner photo bg) */
+    #case{position:relative; isolation:isolate;
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url('owner.jpg') center/cover no-repeat fixed;
+      border-radius:var(--radius)}
+    #case > .card{background:transparent; box-shadow:none}
+
+    /* PROCESS (coffee bg) */
+    #process{
+      position:relative; isolation:isolate;
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)),
+        url('coffee.jpg') center/cover no-repeat fixed;
+      border-radius:var(--radius)
+    }
+    #process > .card{background:transparent; box-shadow:none}
     .steps{white-space:pre-line; text-align:center; font-weight:600}
     .steps .arrow{display:block; opacity:.7; margin:10px 0}
 
-    /* Contact */
-    .kakao{
-      display:inline-flex; align-items:center; gap:10px; background:#fee500; color:#111; font-weight:800;
-      padding:10px 14px; border-radius:10px; text-decoration:none; box-shadow:var(--shadow);
-    }
+    /* CONTACT */
+    .kakao{display:inline-flex; align-items:center; gap:10px; background:#fee500; color:#111; font-weight:800;
+      padding:10px 14px; border-radius:10px; text-decoration:none; box-shadow:var(--shadow)}
     .contact-card p{margin:8px 0}
 
-    /* Footer */
+    /* FOOTER */
     footer{background:#1e1e1e; color:#bbb; padding:56px 0}
     .footer{display:flex; gap:26px; flex-wrap:wrap; align-items:flex-start; justify-content:center}
     .footer img{width:120px; height:auto}
     .footer .info{min-width:240px}
 
-    /* Responsive */
-    @media (max-width: 900px){
+    /* RESPONSIVE */
+    @media (max-width:900px){
       .columns{grid-template-columns:1fr}
       .card{padding:28px}
+      #pain,#case,#process{background-attachment:scroll}
     }
-  
-/* 진행절차 섹션: 배경 + 어두운 오버레이 */
-#process{
-  position: relative;
-  min-height: 60vh;
-  padding: 8rem 2rem;
-  color: #fff;
-  text-align: center;
-  background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
-    url('/images/coffee.jpg') center/cover no-repeat fixed;
-}
-#process > * { position: relative; z-index: 2; }
-#process::before{
-  content:"";
-  position:absolute; inset:0;
-  background: rgba(0,0,0,0.20);
-  z-index:1;
-}
-#process h2{ font-size:2rem; margin-bottom:3rem; }
-#process .steps{ font-size:1.2rem; line-height:2; font-weight:500; white-space:pre-line; }
-@media (max-width: 768px){
-  #process{
-    background-attachment: scroll;
-    background-position: center top;
-  }
-}
-
-/* Pain */
-.section-pain{
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url('/images/texture.jpg') center/cover no-repeat;
-  color:#fff; padding:6rem 2rem; border-radius:16px;
-}
-
-/* Solution */
-.section-solution{
-  background:
-    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
-    url('/images/owner.jpg') center/cover no-repeat;
-  color:#fff; padding:6rem 2rem; border-radius:16px;
-}
-
-</style>
+  </style>
 </head>
 <body>
 
@@ -205,7 +131,7 @@
   <header aria-label="Hero">
     <div class="hero container">
       <h1>리뷰 수가 아닌, <br/>‘스토리’로 승부합니다.</h1>
-      <p>Mashcore × WePlace — 오프라인의 진심을 온라인에서 확장하는 브랜드 파트너</p>
+      <p> WePlace — 오프라인의 진심을 온라인에서 확장하는 브랜드 파트너</p>
       <a class="cta" href="#contact" aria-label="상담 문의로 이동">무료 상담하기</a>
     </div>
   </header>
@@ -213,7 +139,7 @@
   <!-- NAV -->
   <nav>
     <div class="nav-inner container">
-      <a href="#about">가치(Value)</a>
+      <a href="#about">가치</a>
       <a href="#services">서비스</a>
       <a href="#pain">문제 인식</a>
       <a href="#solution">해결 방식</a>
@@ -223,13 +149,13 @@
     </div>
   </nav>
 
-  <!-- ABOUT / VALUE -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="container inner">
       <h2>“감성과 전략의 교차점에서, 매장을 ‘브랜드’로 바꿉니다.”</h2>
       <p>
         우리는 오프라인에서 만들어진 좋은 경험을 온라인에서 ‘공기처럼’ 느껴지게 만듭니다.<br/>
-        네이버 블로그/플레이스, 감성 스토리 콘텐츠, 지역 최적화, 그리고 데이터 기반 리포트까지 —<br/>
+        네이버 블로그/플레이스, 감성 스토리 콘텐츠, 지역 최적화, 데이터 리포트까지 —<br/>
         대표님 매장의 ‘진짜 매력’을 고객의 언어로 설계합니다.
       </p>
     </div>
@@ -243,22 +169,22 @@
       <div class="svc">
         <img src="blog.png" alt="네이버 블로그 브랜딩" />
         <div class="label">네이버 블로그 & 플레이스 브랜딩</div>
-        <div class="muted">가게의 목소리를 담은 스토리 포스팅, 지도 연동 최적화</div>
+        <div class="muted">가게의 목소리를 담은 스토리 포스팅,<br> 지도 연동 최적화</div>
       </div>
       <div class="svc">
         <img src="Exposure.png" alt="인스타그램 익스포져" />
         <div class="label">인스타그램 익스포져</div>
-        <div class="muted">감성 비주얼과 해시태그 전략으로 탐색 유입 강화</div>
+        <div class="muted">감성 비주얼과 해시태그 전략으로 <br> 탐색 유입 강화</div>
       </div>
       <div class="svc">
         <img src="Nplaceopt.png" alt="플레이스 최적화" />
         <div class="label">로컬 키워드 & 지역 최적화</div>
-        <div class="muted">‘동네 손님’과 ‘새 손님’을 위한 검색 동선 설계</div>
+        <div class="muted">‘동네 손님’과 ‘새 손님’을 위한 <br> 검색 동선 설계</div>
       </div>
     </div>
   </section>
 
-  <!-- PAIN -->
+  <!-- PAIN (texture bg) -->
   <section id="pain" class="container">
     <div class="card">
       <span class="pill">사장님들이 자주 하시는 말씀</span>
@@ -275,8 +201,8 @@
         <div>
           <ul class="list">
             <li><b>📉 결과 중심 홍보의 한계</b><span class="muted">숫자 놀음이 아닌, 경험 설계가 필요.</span></li>
-            <li><b>🎯 맞춤 전략 부재</b><span class="muted">업종·지역·고객 특성을 반영한 콘텐츠 필요.</span></li>
-            <li><b>🔄 유입→결제 연결</b><span class="muted">상담/방문 이후 행동 유도 시나리오 설계.</span></li>
+            <li><b> 맞춤 전략 부재</b><span class="muted">업종·지역·고객 특성 반영한 콘텐츠 필요.</span></li>
+            <li><b> 유입→결제 연결</b><span class="muted">상담/방문 이후 행동 유도 시나리오 설계.</span></li>
             <li><b>💬 스토리의 힘</b><span class="muted">‘왜 이 가게인가’를 몸으로 느끼게 만들기.</span></li>
           </ul>
         </div>
@@ -287,7 +213,7 @@
   <!-- SOLUTION -->
   <section id="solution" class="container">
     <div class="card">
-      <span class="pill">Mashcore × WePlace의 해결</span>
+      <span class="pill"> WePlace의 해결</span>
       <h3 class="section-title">리뷰 수가 아닌 ‘스토리’로 매출을 연결합니다</h3>
       <div class="columns">
         <div>
@@ -306,23 +232,21 @@
     </div>
   </section>
 
-  <!-- CASE STUDY -->
+  <!-- CASE (owner bg) -->
   <section id="case" class="container">
-    <div class="case">
-      <div class="content">
-        <span class="pill">Case Study</span>
-        <h3 class="section-title">조선탑케어 — 거제 입주청소</h3>
-        <p>
-          ➜ ‘리뷰 수’ 경쟁에서 벗어나, 고객 체험 기반의 스토리 콘텐츠로 전환<br/>
-          ➜ 지점·지역 검색어 최적화 + 지도 연동 구조 보강<br/>
-          ➜ 결과: 매출 상승 체감 & 지인 추천 유입 증가(지속 소통 기반)
-        </p>
-        <p class="muted" style="margin-top:8px">* 상세 수치는 사장님 동의 시 제안서 본문에 제공</p>
-      </div>
+    <div class="card">
+      <span class="pill">Case Study</span>
+      <h3 class="section-title">조선탑케어 — 거제 입주청소</h3>
+      <p>
+        ➜ ‘리뷰 수’ 경쟁에서 벗어나, 고객 체험 기반 스토리 콘텐츠로 전환<br/>
+        ➜ 지점·지역 검색어 최적화 + 지도 연동 구조 보강<br/>
+        ➜ 결과: 매출 상승 체감 & 지인 추천 유입 증가(지속 소통 기반)
+      </p>
+      <p class="muted" style="margin-top:8px">* 상세 수치는 사장님 동의 시 제안서 본문에 제공</p>
     </div>
   </section>
 
-  <!-- PROCESS -->
+  <!-- PROCESS (coffee bg) -->
   <section id="process" class="container">
     <div class="card">
       <h3 class="section-title">진행 절차</h3>
@@ -349,9 +273,7 @@
       <p>전화: <a href="tel:01026789036">010-2678-9036</a></p>
       <p>이메일: <a href="mailto:weplacehyun@naver.com">weplacehyun@naver.com</a></p>
       <p>카카오톡: hyuney87</p>
-      <p>
-        <a class="kakao" href="https://open.kakao.com/o/soQ9hEFh" target="_blank" rel="noopener">오픈채팅 바로가기</a>
-      </p>
+      <p><a class="kakao" href="https://open.kakao.com/o/soQ9hEFh" target="_blank" rel="noopener">오픈채팅 바로가기</a></p>
     </div>
   </section>
 
