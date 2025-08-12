@@ -86,14 +86,64 @@
     .bubble.left::after, .bubble.right::after{
       content:""; position:absolute; top:14px; width:0; height:0; border:8px solid transparent;
     }
-    .bubble.left::after{
+    
+
+    /* WEBTOON-STYLE THOUGHT BUBBLES */
+    .bubble.thought{
+      background:#fff; color:#111;
+      border:2px solid #1a1a1a;
+      border-radius:28px;
+      box-shadow:0 10px 26px rgba(0,0,0,.22);
+    }
+    .bubble.thought.left::before,
+    .bubble.thought.left::after,
+    .bubble.thought.right::before,
+    .bubble.thought.right::after{
+      content:""; position:absolute; border:none; width:14px; height:14px;
+      background:#fff; border:2px solid #1a1a1a; border-radius:50%;
+      box-shadow:0 4px 10px rgba(0,0,0,.15);
+    }
+    .bubble.thought.left::before{ left:-14px; top:18px; }
+    .bubble.thought.left::after{  left:-32px; top:36px; width:9px; height:9px; }
+    .bubble.thought.right::before{ right:-14px; top:18px; }
+    .bubble.thought.right::after{  right:-32px; top:36px; width:9px; height:9px; }
+    .bubble.thought{ transform:translateZ(0); }
+    .bubble.thought:hover{ transform:translateY(-2px) rotate(-.2deg); }
+    .bubble.thought small{ color:#333; font-weight:700; }
+
+.bubble.left::after{
       left:-1px; border-right-color:var(--bubbleEdge); transform:translateX(-7px)
     }
     .bubble.right::after{
       right:-1px; border-left-color:var(--bubbleEdge); transform:translateX(7px)
     }
 
-    /* desktop: 2 rows × 4 cols symmetric grid */
+    
+
+    /* WEBTOON-STYLE THOUGHT BUBBLES */
+    .bubble.thought{
+      background:#fff; color:#111;
+      border:2px solid #1a1a1a;
+      border-radius:28px;
+      box-shadow:0 10px 26px rgba(0,0,0,.22);
+    }
+    .bubble.thought.left::before,
+    .bubble.thought.left::after,
+    .bubble.thought.right::before,
+    .bubble.thought.right::after{
+      content:""; position:absolute; border:none; width:14px; height:14px;
+      background:#fff; border:2px solid #1a1a1a; border-radius:50%;
+      box-shadow:0 4px 10px rgba(0,0,0,.15);
+    }
+    .bubble.thought.left::before{ left:-14px; top:18px; }
+    .bubble.thought.left::after{  left:-32px; top:36px; width:9px; height:9px; }
+    .bubble.thought.right::before{ right:-14px; top:18px; }
+    .bubble.thought.right::after{  right:-32px; top:36px; width:9px; height:9px; }
+    .bubble.thought{ transform:translateZ(0); }
+    .bubble.thought:hover{ transform:translateY(-2px) rotate(-.2deg); }
+    .bubble.thought small{ color:#333; font-weight:700; }
+
+/* desktop: 2 rows × 4 cols symmetric grid */
     @media (min-width: 900px){
       .bubble-col{
         grid-template-columns:repeat(4,1fr);
@@ -218,18 +268,18 @@
 
       <!-- row 1 (mobile stacked, desktop 4 cols) -->
       <div class="bubble-col row" style="margin-top:18px">
-        <div class="bubble left">“생각보다 매출이 안 올라요…”<small>리뷰 수만 늘려선 한계</small></div>
-        <div class="bubble right">“복붙 포스팅은 그럴듯하지만…”<small>우리 매장만의 개성이 사라짐</small></div>
-        <div class="bubble left">“방문은 오는데 결제가 안 돼요.”<small>유입 → 결제 전환 연결이 약함</small></div>
-        <div class="bubble right">“내 가게 이야기를 해주는 곳이 없어요.”<small>고객과 감정적으로 연결되는 서사 부재</small></div>
+        <div class="bubble thought left">“생각보다 매출이 안 올라요…”<small>리뷰 수만 늘려선 한계</small></div>
+        <div class="bubble thought right">“복붙 포스팅은 그럴듯하지만…”<small>우리 매장만의 개성이 사라짐</small></div>
+        <div class="bubble thought left">“방문은 오는데 결제가 안 돼요.”<small>유입 → 결제 전환 연결이 약함</small></div>
+        <div class="bubble thought right">“내 가게 이야기를 해주는 곳이 없어요.”<small>고객과 감정적으로 연결되는 서사 부재</small></div>
       </div>
 
       <!-- row 2 -->
       <div class="bubble-col row" style="margin-top:22px">
-        <div class="bubble right">📉 결과 중심 홍보의 한계<small>숫자 놀음이 아닌, 경험 설계가 필요</small></div>
-        <div class="bubble left">맞춤 전략 부재<small>업종·지역·고객 특성 반영한 콘텐츠 필요</small></div>
-        <div class="bubble right">유입→결제 연결<small>상담/방문 이후 행동 유도 시나리오 설계</small></div>
-        <div class="bubble left">💬 스토리의 힘<small>‘왜 이 가게인가’를 몸으로 느끼게 만들기</small></div>
+        <div class="bubble thought right">📉 결과 중심 홍보의 한계<small>숫자 놀음이 아닌, 경험 설계가 필요</small></div>
+        <div class="bubble thought left">맞춤 전략 부재<small>업종·지역·고객 특성 반영한 콘텐츠 필요</small></div>
+        <div class="bubble thought right">유입→결제 연결<small>상담/방문 이후 행동 유도 시나리오 설계</small></div>
+        <div class="bubble thought left">💬 스토리의 힘<small>‘왜 이 가게인가’를 몸으로 느끼게 만들기</small></div>
       </div>
     </div>
   </section>
